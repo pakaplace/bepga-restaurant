@@ -1,326 +1,830 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tailwind Starter Template - Ghostwind CSS : Tailwind Toolbox</title>
-		<meta name="author" content="name">
-    <meta name="description" content="description here">
-		<meta name="keywords" content="keywords,here">
-		<link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> <!--Replace with your tailwind.css once created-->
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet">
-		
-</head>
-<body class="bg-gray-200 font-sans leading-normal tracking-normal">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bep Ga</title>
+    <meta name="author" content="Bep Ga" />
+    <meta name="description" content="Vietnamese chicken emporium" />
+    <meta name="keywords" content="keywords,here" />
+    <link
+      href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!--Replace with your tailwind.css once created-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Initialize and add the map
+      function initMap() {
+        // The location of BepGaLocation
+        var BepGaLocation = {lat: 40.7170, lng: -73.9932};
 
-	<!--Header-->
-	<div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url('cover.jpg'); height: 60vh; max-height:460px;">
-			<div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
-				<!--Title-->
-					<p class="text-white font-extrabold text-3xl md:text-5xl">
-						👻 Ghostwind CSS
-					</p>
-					<p class="text-xl md:text-2xl text-gray-500">Welcome to my Blog</p>
-			</div>
-		</div>
-		
-		<!--Container-->
-		<div class="container px-4 md:px-0 max-w-6xl mx-auto -mt-32">
-			
-			<div class="mx-0 sm:mx-6">
-				
-				<!--Nav-->
-				<nav class="mt-0 w-full">
-					<div class="container mx-auto flex items-center">
-						
-						<div class="flex w-1/2 pl-4 text-sm">
-							<ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
-								<li class="mr-2">
-								<a class="inline-block py-2 px-2 text-white no-underline hover:underline" href="post.html">POST</a>
-								</li>
-								<li class="mr-2">
-								<a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-2" href="#">LINK</a>
-								</li>
-								<li class="mr-2">
-								<a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-2" href="#">LINK</a>
-								</li>
-								<li class="mr-2">
-								<a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-2" href="post_vue.html">POST_VUE</a>
-								</li>
-							</ul>
-						</div>
+        var styledMapType= new google.maps.StyledMapType([
+          {
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#ebe3cd"
+              }
+            ]
+          },
+          {
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#523735"
+              }
+            ]
+          },
+          {
+            "elementType": "labels.text.stroke",
+            "stylers": [
+              {
+                "color": "#f5f1e6"
+              }
+            ]
+          },
+          {
+            "featureType": "administrative",
+            "elementType": "geometry.stroke",
+            "stylers": [
+              {
+                "color": "#c9b2a6"
+              }
+            ]
+          },
+          {
+            "featureType": "administrative.land_parcel",
+            "elementType": "geometry.stroke",
+            "stylers": [
+              {
+                "color": "#dcd2be"
+              }
+            ]
+          },
+          {
+            "featureType": "administrative.land_parcel",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#ae9e90"
+              }
+            ]
+          },
+          {
+            "featureType": "landscape.natural",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#dfd2ae"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#dfd2ae"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#93817c"
+              }
+            ]
+          },
+          {
+            "featureType": "poi.park",
+            "elementType": "geometry.fill",
+            "stylers": [
+              {
+                "color": "#a5b076"
+              }
+            ]
+          },
+          {
+            "featureType": "poi.park",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#447530"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#f5f1e6"
+              }
+            ]
+          },
+          {
+            "featureType": "road.arterial",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#fdfcf8"
+              }
+            ]
+          },
+          {
+            "featureType": "road.highway",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#f8c967"
+              }
+            ]
+          },
+          {
+            "featureType": "road.highway",
+            "elementType": "geometry.stroke",
+            "stylers": [
+              {
+                "color": "#e9bc62"
+              }
+            ]
+          },
+          {
+            "featureType": "road.highway.controlled_access",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#e98d58"
+              }
+            ]
+          },
+          {
+            "featureType": "road.highway.controlled_access",
+            "elementType": "geometry.stroke",
+            "stylers": [
+              {
+                "color": "#db8555"
+              }
+            ]
+          },
+          {
+            "featureType": "road.local",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#806b63"
+              }
+            ]
+          },
+          {
+            "featureType": "transit.line",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#dfd2ae"
+              }
+            ]
+          },
+          {
+            "featureType": "transit.line",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#8f7d77"
+              }
+            ]
+          },
+          {
+            "featureType": "transit.line",
+            "elementType": "labels.text.stroke",
+            "stylers": [
+              {
+                "color": "#ebe3cd"
+              }
+            ]
+          },
+          {
+            "featureType": "transit.station",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#dfd2ae"
+              }
+            ]
+          },
+          {
+            "featureType": "water",
+            "elementType": "geometry.fill",
+            "stylers": [
+              {
+                "color": "#b9d3c2"
+              }
+            ]
+          },
+          {
+            "featureType": "water",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#92998d"
+              }
+            ]
+          }
+        ])
+        // The map, centered at BepGaLocation
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 15, center: BepGaLocation, mapTypeId: "satellite"});
+        map.setTilt(45);
+        // The marker, positioned at BepGaLocation
+        var marker = new google.maps.Marker({position: BepGaLocation, map});
+        map.mapTypes.set('styled_map', styledMapType);
+        map.setMapTypeId('styled_map');
+      }
+          </script>
+          <script defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtd2T3WiB8zbzLbjDibJ0TW2a04PvkS84&callback=initMap">
+          </script>
+        </body>
 
+    <style>
+      .smooth {
+        transition: box-shadow 0.3s ease-in-out;
+      }
+      ::selection {
+        background-color: aliceblue;
+      }
+    </style>
+  </head>
+  <body class="bg-white font-sans leading-normal tracking-normal">
+    <!-- Nav -->
+    <!-- <nav class="bg-gray-900 p-4 mt-0 w-full">
+      <div class="container mx-auto flex items-center">
+        <div class="flex text-white font-extrabold">
+          <a
+            class="flex text-white text-base no-underline hover:text-white hover:no-underline"
+            href="#"
+          >
+            <img src="bepga_logo.png" />
+            <span class="hidden w-0 md:w-auto md:block pl-1"
+              >Ghostwind CSS</span
+            >
+          </a>
+        </div>
+        <div class="flex pl-4 text-sm">
+          <ul
+            class="list-reset flex justify-between flex-1 md:flex-none items-center"
+          >
+            <li class="mr-2">
+              <a
+                class="inline-block py-2 px-2 text-white no-underline"
+                href="index.html"
+                >HOME</a
+              >
+            </li>
+            <li class="mr-2">
+              <a
+                class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-2"
+                href="#"
+                >LINK</a
+              >
+            </li>
+            <li class="mr-2">
+              <a
+                class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-2"
+                href="#"
+                >LINK</a
+              >
+            </li>
+            <li class="mr-2">
+              <a
+                class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-2"
+                href="#"
+                >LINK</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav> -->
 
-						<div class="flex w-1/2 justify-end content-center">		
-							<a class="inline-block text-gray-500 no-underline hover:text-white hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 avatar" data-tippy-content="@twitter_handle" href="https://twitter.com/intent/tweet?url=#">
-								<svg class="fill-current h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
-							</a>
-							<a class="inline-block text-gray-500 no-underline hover:text-white hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 avatar" data-tippy-content="#facebook_id" href="https://www.facebook.com/sharer/sharer.php?u=#">
-								<svg class="fill-current h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path></svg>
-							</a>
-						</div>
+    <!--slide in nav-->
+    <div
+      id="header"
+      class="bg-white fixed w-full z-10 top-0 hidden animated"
+      style="opacity: 0.95;"
+    >
+      <div class="bg-white">
+        <div class="flex flex-wrap items-center content-center">
+          <div class="flex w-1/2 justify-start text-white font-extrabold">
+            <a
+              class="flex text-gray-900 no-underline hover:text-gray-900 hover:no-underline pl-2"
+              href="#"
+            >
+            🇻🇳
+              <span class="hidden w-0 md:w-auto md:block pl-1">Bep Ga</span>
+            </a>
+          </div>
+          <div class="flex w-1/2 justify-end content-center items-center">
+            <p class="hidden sm:block mr-3 text-center h-14 p-4 text-xs">
+              <h2 class="pr-2">Follow us for events and specials</h2> 👉
+            </p>
+            <a
+              class="inline-block text-white no-underline hover:text-white hover:text-underline text-center h-10 w-10 p-2 md:h-auto md:w-16 md:p-4"
+              href="instagram.com/bepganyc/"
+              style="background-color: #ffffff;"
+            >
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+         <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-46.0041" y1="634.1208" x2="-32.9334" y2="647.1917" gradientTransform="matrix(32 0 0 -32 1519 20757)">
+           <stop  offset="0" style="stop-color:#FFC107"/>
+           <stop  offset="0.507" style="stop-color:#F44336"/>
+           <stop  offset="0.99" style="stop-color:#9C27B0"/>
+         </linearGradient>
+         <path style="fill:url(#SVGID_1_);" d="M352,0H160C71.648,0,0,71.648,0,160v192c0,88.352,71.648,160,160,160h192
+           c88.352,0,160-71.648,160-160V160C512,71.648,440.352,0,352,0z M464,352c0,61.76-50.24,112-112,112H160c-61.76,0-112-50.24-112-112
+           V160C48,98.24,98.24,48,160,48h192c61.76,0,112,50.24,112,112V352z"/>
+         <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="-42.2971" y1="637.8279" x2="-36.6404" y2="643.4846" gradientTransform="matrix(32 0 0 -32 1519 20757)">
+           <stop  offset="0" style="stop-color:#FFC107"/>
+           <stop  offset="0.507" style="stop-color:#F44336"/>
+           <stop  offset="0.99" style="stop-color:#9C27B0"/>
+         </linearGradient>
+         <path style="fill:url(#SVGID_2_);" d="M256,128c-70.688,0-128,57.312-128,128s57.312,128,128,128s128-57.312,128-128
+           S326.688,128,256,128z M256,336c-44.096,0-80-35.904-80-80c0-44.128,35.904-80,80-80s80,35.872,80,80
+           C336,300.096,300.096,336,256,336z"/>
+         <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="-35.5456" y1="644.5793" x2="-34.7919" y2="645.3331" gradientTransform="matrix(32 0 0 -32 1519 20757)">
+           <stop  offset="0" style="stop-color:#FFC107"/>
+           <stop  offset="0.507" style="stop-color:#F44336"/>
+           <stop  offset="0.99" style="stop-color:#9C27B0"/>
+         </linearGradient>
+         <circle style="fill:url(#SVGID_3_);" cx="393.6" cy="118.4" r="17.056"/>
+         </svg>
+            </a>
+            <!-- Facebook -->
+            <!-- <a
+              class="inline-block text-white no-underline hover:text-white hover:text-underline text-center h-10 w-10 p-2 md:h-auto md:w-16 md:p-4"
+              href="https://www.facebook.com/sharer/sharer.php?u=#"
+              style="background-color: #005e99;"
+            >
+              <svg
+                class="fill-current text-white h-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"
+                ></path>
+              </svg>
+            </a> -->
+          </div>
+        </div>
+      </div>
+      <!--Progress bar-->
+      <div
+        id="progress"
+        class="h-1 bg-white shadow"
+        style="
+          background: linear-gradient(
+            to right,
+            #4dc0b5 var(--scroll),
+            transparent 0
+          );
+        "
+      ></div>
+    </div>
 
-					</div>
-				</nav>
+    <!--Title-->
+    <!-- <div class="text-center pt-16 md:pt-32">
+      <p class="text-sm md:text-base text-teal-500 font-bold">
+        08 APRIL 2019 <span class="text-gray-900">/</span> GETTING STARTED
+      </p>
+      <h1 class="font-bold break-normal text-3xl md:text-5xl">
+        Welcome to Ghostwind CSS
+      </h1>
+    </div> -->
 
-				<div class="bg-gray-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t">
-					
-				<!--Lead Card-->
-				<div class="flex h-full bg-white rounded overflow-hidden shadow-lg">
-					<a href="post.html" class="flex flex-wrap no-underline hover:no-underline">
-						<div class="w-full md:w-2/3 rounded-t">	
-							<img src="https://source.unsplash.com/collection/494263/800x600" class="h-full w-full shadow">
-						</div>
-
-						<div class="w-full md:w-1/3 flex flex-col flex-grow flex-shrink">
-							<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-								<p class="w-full text-gray-600 text-xs md:text-sm pt-6 px-6">GETTING STARTED</p>
-								<div class="w-full font-bold text-xl text-gray-900 px-6">👋 Welcome fellow Tailwind CSS and Ghost fan</div>
-								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-									This starter template is an attempt to replicate the default Ghost theme "Casper" using Tailwind CSS and vanilla Javascript.
-								</p>
-							</div>
-
-							<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
-								<div class="flex items-center justify-between">
-									<img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-									<p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
-								</div>
-							</div>
-						</div>
-
-					</a>
-				</div>
-				<!--/Lead Card-->
-
-
-				<!--Posts Container-->
-				<div class="flex flex-wrap justify-between pt-12 -mx-6">
-
-					<!--1/3 col -->
-					<div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-							<a href="#" class="flex flex-wrap no-underline hover:no-underline">
-								<img src="https://source.unsplash.com/collection/225/800x600" class="h-64 w-full rounded-t pb-6">
-								<p class="w-full text-gray-600 text-xs md:text-sm px-6">GETTING STARTED</p>
-								<div class="w-full font-bold text-xl text-gray-900 px-6">Lorem ipsum dolor sit amet.</div>
-								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. 
-								</p>
-							</a>
-						</div>
-						<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
-							<div class="flex items-center justify-between">
-								<img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-								<p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
-							</div>
-						</div>
-					</div>
-				
-					
-					<!--1/3 col -->
-					<div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-							<a href="#" class="flex flex-wrap no-underline hover:no-underline">
-								<img src="https://source.unsplash.com/collection/3106804/800x600" class="h-64 w-full rounded-t pb-6">
-								<p class="w-full text-gray-600 text-xs md:text-sm px-6">GETTING STARTED</p>
-								<div class="w-full font-bold text-xl text-gray-900 px-6">Lorem ipsum dolor sit amet.</div>
-								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ip Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. 
-								</p>
-							</a>
-							</div>
-						<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
-							<div class="flex items-center justify-between">
-								<img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-								<p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
-							</div>
-						</div>
-					</div>
-
-					<!--1/3 col -->
-					<div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-							<a href="#" class="flex flex-wrap no-underline hover:no-underline">
-								<img src="https://source.unsplash.com/collection/539527/800x600" class="h-64 w-full rounded-t pb-6">
-								<p class="w-full text-gray-600 text-xs md:text-sm px-6">GETTING STARTED</p>
-								<div class="w-full  font-bold text-xl text-gray-900 px-6">Lorem ipsum dolor sit amet.</div>
-								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-									Lorem ipsum eu nunc commodo posuere et sit amet ligula. 
-								</p>
-							</a>
-						</div>
-						<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
-							<div class="flex items-center justify-between">
-								<img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-								<p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
-							</div>
-						</div>
-					</div>
-
-
-					<!--1/2 col -->
-					<div class="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
-						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-							<a href="#" class="flex flex-wrap no-underline hover:no-underline">
-								<img src="https://source.unsplash.com/collection/3657445/800x600" class="h-full w-full rounded-t pb-6">
-								<p class="w-full text-gray-600 text-xs md:text-sm px-6">GETTING STARTED</p>
-								<div class="w-full font-bold text-xl text-gray-900 px-6">Lorem ipsum dolor sit amet.</div>
-								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-									Lorem ipsum eu nunc commodo posuere et sit amet ligula. 
-								</p>
-							</a>
-						</div>
-						<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
-							<div class="flex items-center justify-between">
-								<img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-								<p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
-							</div>
-						</div>
-					</div>
-
-					<!--1/2 col -->
-					<div class="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
-						<div class="flex-1 flex-row bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-							<a href="#" class="flex flex-wrap no-underline hover:no-underline">	
-								<img src="https://source.unsplash.com/collection/764827/800x600" class="h-full w-full rounded-t pb-6">
-								<p class="w-full text-gray-600 text-xs md:text-sm px-6">GETTING STARTED</p>
-								<div class="w-full font-bold text-xl text-gray-900 px-6">Lorem ipsum dolor sit amet.</div>
-								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-									Lorem ipsum eu nunc commodo posuere et sit amet ligula. 
-								</p>
-							</a>
-						</div>
-						<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
-							<div class="flex items-center justify-between">
-								<img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-								<p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
-							</div>
-						</div>
-					</div>
-
-
-
-					<!--2/3 col -->
-					<div class="w-full md:w-2/3 p-6 flex flex-col flex-grow flex-shrink">
-						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-							<a href="#" class="flex flex-wrap no-underline hover:no-underline">	
-								<img src="https://source.unsplash.com/collection/325867/800x600" class="h-full w-full rounded-t pb-6">
-								<p class="w-full text-gray-600 text-xs md:text-sm px-6">GETTING STARTED</p>
-								<div class="w-full font-bold text-xl text-gray-900 px-6">Lorem ipsum dolor sit amet.</div>
-								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-									Lorem ipsum eu nunc commodo posuere et sit amet ligula. 
-								</p>
-							</a>
-						</div>
-						<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
-							<div class="flex items-center justify-between">
-								<img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-								<p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
-							</div>
-						</div>
-					</div>
-
-					<!--1/3 col -->
-					<div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-							<a href="#" class="flex flex-wrap no-underline hover:no-underline">
-								<img src="https://source.unsplash.com/collection/1118905/800x600" class="h-full w-full rounded-t pb-6">
-								<p class="w-full text-gray-600 text-xs md:text-sm px-6">GETTING STARTED</p>
-								<div class="w-full font-bold text-xl text-gray-900 px-6">Lorem ipsum dolor sit amet.</div>
-								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-									Lorem ipsum eu nunc commodo posuere et sit amet ligula. 
-								</p>
-							</a>
-						</div>
-						<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
-							<div class="flex items-center justify-between">
-								<img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-								<p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
-							</div>
-						</div>
-					</div>
-
-				</div>
-				<!--/ Post Content-->
-						
-			</div>
-			
-			
-				<!--Subscribe-->	
-				<div class="container font-sans bg-teal-100 rounded mt-8 p-4 md:p-24 text-center">
-					<h2 class="font-bold break-normal text-2xl md:text-4xl">Subscribe to Ghostwind CSS</h2>
-					<h3 class="font-bold break-normal font-normal text-gray-600 text-base md:text-xl">Get the latest posts delivered right to your inbox</h3>
-					<div class="w-full text-center pt-4">
-						<form action="#">
-							<div class="max-w-xl mx-auto p-1 pr-0 flex flex-wrap items-center">
-								<input type="email" placeholder="youremail@example.com" class="flex-1 appearance-none rounded shadow p-3 text-gray-600 mr-2 focus:outline-none">
-								<button type="submit" class="flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-teal-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-teal-400">Subscribe</button>
-							</div>
-						</form>
-					</div>
-				</div>
-				<!-- /Subscribe-->
-			
-	
-				<!--Author-->
-				<div class="flex w-full items-center font-sans p-8 md:p-24">
-					<img class="w-10 h-10 rounded-full mr-4" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-					<div class="flex-1">
-						<p class="text-base font-bold text-base md:text-xl leading-none">Ghostwind CSS</p>
-						<p class="text-gray-600 text-xs md:text-base">Tailwind CSS version of Ghost's Casper theme by <a class="text-gray-800 hover:text-teal-500 no-underline border-b-2 border-teal-500" href="https://www.tailwindtoolbox.com">TailwindToolbox.com</a></p>
-					</div>
-					<div class="justify-end">
-						<button class="bg-transparent border border-gray-500 hover:border-teal-500 text-xs text-gray-500 hover:text-teal-500 font-bold py-2 px-4 rounded-full">Read More</button>
-					</div>
-				</div>
-				<!--/Author-->
-			
-		</div>
-	
-
-	</div>
-
-
-	<footer class="bg-gray-900">	
-		<div class="container max-w-6xl mx-auto flex items-center px-2 py-8">
-
-			<div class="w-full mx-auto flex flex-wrap items-center">
-				<div class="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold">
-					<a class="text-gray-900 no-underline hover:text-gray-900 hover:no-underline" href="#">
-						👻 <span class="text-base text-gray-200">Ghostwind CSS</span>
-					</a>
-				</div>
-				<div class="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
-					<ul class="list-reset flex justify-center flex-1 md:flex-none items-center">
-					  <li>
-						<a class="inline-block py-2 px-3 text-white no-underline" href="#">Active</a>
-					  </li>
-					  <li>
-						<a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-3" href="#">link</a>
-					  </li>
-					  <li>
-						<a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-3" href="#">link</a>
-					  </li>
-						<li>
-						<a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-3" href="#">link</a>
-					  </li>
-					</ul>
-				</div>
-			</div>
+    <!--image-->
+    <div
+      class="w-full bg-white bg-cover bg-center text-center flex justify-center items-end pb-12"
+      style="
+        background-image: url('./media/bepga-chinatown-background.png');
+        height: 90vh;
+      "
+    >
+      <div>
+        <button
+          class="bg-pink-300 hover:bg-pink-500 text-white font-semibold hover:text-white py-2 px-4 my-2 border border-pink-500 hover:border-transparent rounded mx-2"
+          style="font-family: Rubik Mono One;"
+          onClick="window.open('https://bepganyc.square.site/');"
+        >
+          Pick Up (No fee)
+        </button>
+        <button
+          class="bg-pink-300 hover:bg-pink-500 text-white font-semibold hover:text-white py-2 px-4 my-2 border border-pink-500 hover:border-transparent rounded mx-2"
+          style="font-family: Rubik Mono One;"
+          onClick="window.open('https://www.trycaviar.com/m/bep-ga-13073');"
+          
+        >
+          Order delivery
+        </button>
+        <button
+        class="bg-pink-300 hover:bg-pink-500 text-white font-semibold hover:text-white py-2 px-4 my-2 border border-pink-500 hover:border-transparent rounded mx-2"
+        style="font-family: Rubik Mono One;"
+        onClick="window.open('./media/bep-ga-menu.pdf');"
         
+      >
+        View menu
+      </button>
+      </div>
+    </div>
 
-		
-		</div>
-	</footer>
+    <!--Container-->
+    <div class="bg-pink-100 w-full">
+      <div class="mx-0 sm:mx-6">
+        <div
+          class="w-full p-8 md:p-24 text-grey-700 text-xl md:text-2xl text-gray-800 leading-normal"
+          style="font-family: Georgia;"
+        >
+          <!--Post Content-->
+          <!--Lead Para-->
+          <h1
+            class="text-2xl md:text-3xl mb-10"
+            style="font-family: Rubik Mono One;"
+          >
+            📣 Bep Ga in the press
+          </h1>
+          <!-- <blockquote
+            class="border-l-4 border-teal-500 italic mt-8 mb-4 pl-8 md:pl-12"
+          >
+            The broth is fortified with whole birds, butchered parts, and feet,
+            then concentrated by the meat that’s poached in it. A blast of
+            ginger paste, minty sawtooth herb, and creamy-yolked quail egg make
+            it Vietnamese chicken-noodle soup of the gods.
+          </blockquote> -->
+          <div class="my-6">
+            <a
+            class=" text-bold text-xl text-gray-800 hover:text-teal-500 no-underline border-b-2 border-teal"
+            href="https://www.grubstreet.com/2020/03/101-things-we-hope-to-eat-again-soon-in-nyc.html"
+            style="font-family: Rubik Mono One;"
+            >"101 things we hope we eat again soon"</a> <p style="font-family: Georgia, 'Times New Roman', Times, serif">Grub Street, Mar 2020</p>
+          </div>
 
-	<script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
-	<script src="https://unpkg.com/tippy.js@4"></script>
-	<script>
-		//Init tooltips
-		tippy('.avatar')
-	</script>
-</body>
+          <!-- <blockquote
+            class="border-l-4 border-teal-500 italic mt-8 mb-4 pl-8 md:pl-12"
+          >
+            Mr. Xuan’s version is restorative, light in body and frank in flavor, testifying to the use of the more obscure chicken parts... I mourned the last drop.
+          </blockquote> -->
+          <div class="my-6">
+          <a
+          class=" text-bold text-xl text-gray-800 hover:text-teal-500 no-underline "
+          href="https://www.grubstreet.com/2020/03/101-things-we-hope-to-eat-again-soon-in-nyc.html"
+            style="font-family: Rubik Mono One;"
+            >"At Bep Ga in Chinatown, It All Begins With Chicken"</a>
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif">New York Times, June 2017</p>
+          </div>
+
+        <div class="my-6">
+          <a
+          class=" text-bold text-xl text-gray-800 hover:text-teal-500 no-underline"
+          href="https://www.insider.com/amazing-vietnamese-restaurants-to-visit-in-nyc-2019-6"
+            style="font-family: Rubik Mono One;"
+            >"I've tried dozens of Vietnamese restaurants in NYC, and these are the 9 I recommend to friends"</a>
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif">Insider, September 2019</p>
+          </div>
+
+        <div class="my-6">
+          <a
+          class=" text-bold text-xl text-gray-800 hover:text-teal-500 no-underline"
+          href="https://www.grubstreet.com/bestofnewyork/absolute-best-pho-in-nyc.html"
+            style="font-family: Rubik Mono One;"
+            >"The Absolute Best Pho in New York"</a>
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif">Grub Street, January 2018</p>
+          </div>
+
+      <div class="my-6">
+        <a
+        class=" text-bold text-xl text-gray-800 hover:text-teal-500 no-underline"
+        href="https://www.grubstreet.com/2019/04/nyc-chefs-recommend-the-best-affordable-restaurants.html"
+          style="font-family: Rubik Mono One;"
+          >"New York’s Most Affordable Standout Restaurants, According to 14 Chefs"</a>
+          <p style="font-family: Georgia, 'Times New Roman', Times, serif">Grub Street, April 2019</p>
+        </div>
+        <div class="my-6">
+          <a
+          class=" text-bold text-xl text-gray-800 hover:text-teal-500 no-underline"
+          href="https://www.amny.com/eat-and-drink/what-to-eat-sick-nyc-1-26400359/"
+            style="font-family: Rubik Mono One;"
+            >"Feeling sick? Here’s what to eat and drink in NYC when illness strikes"</a>
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif">Am NY, Jan 2019</p>
+          </div>
+          <!-- <a
+              class="text-gray-800 hover:text-teal-500 no-underline border-b-2 border-teal-500"
+              href="https://www.tailwindcss.com"
+              >Tailwind CSS</a
+            >
+            and
+            <a
+              class="text-gray-800 hover:text-teal-500 no-underline border-b-2 border-teal-500"
+              href="https://www.ghost.org"
+              >Ghost</a
+            >
+            fan. This starter template is an attempt to replicate the default
+            Ghost theme
+            <a
+              class="text-gray-800 hover:text-teal-500 no-underline border-b-2 border-teal-500"
+              href="https://demo.ghost.io/welcome"
+              >"Casper"</a
+            >
+            using Tailwind CSS and vanilla Javascript.
+          </p> -->
+
+				</pre>
+
+          <!--/ Post Content-->
+        </div>
+
+        <!-- Picture -->
+        <div
+        class="container mx-auto bg-white bg-contain bg-center text-center flex justify-center items-end pb-12"
+        style="
+          background-image: url('./media/all-dishes.jpg');
+          height: 60vh;
+        "
+      ></div>
+      </div>
+        <!--Subscribe-->
+        <div class="w-full bg-teal-100 ">
+
+          <div
+            class="font-sans mt-8 p-4 md:p-24 text-center"
+          >
+            <h2 class="font-bold break-normal text-2xl md:text-4xl">
+              Hours and location
+            </h2>
+            
+            <h3
+              class="font-bold break-normal font-normal text-gray-600 text-base md:text-xl"
+            >
+              70 Forsyth Street, New York, NY 10002 <br>
+              Bowery/Chinatown <br>
+              (917) 261-4716 <br>
+              bepganyc@gmail.com <br>
+            </h3>
+            <div class="w-full text-center pt-4">
+              <div id="map" class="w-full h-64"></div>
+              <!-- <form action="#">
+                <div
+                  class="max-w-sm mx-auto p-1 pr-0 flex flex-wrap items-center"
+                >
+                  <input
+                    type="email"
+                    placeholder="youremail@example.com"
+                    class="flex-1 appearance-none rounded shadow p-3 text-gray-600 mr-2 focus:outline-none"
+                  />
+                  <button
+                    type="submit"
+                    class="flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-teal-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-teal-400"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </form> -->
+            </div>
+          </div>
+        </div>
+        <!-- /Subscribe-->
+
+        <!-- Author-->
+        <!-- <div class="flex w-full items-center font-sans p-8 md:p-24">
+          <img
+            class="w-10 h-10 rounded-full mr-4"
+            src="http://i.pravatar.cc/300"
+            alt="Avatar of Author"
+          />
+          <div class="flex-1">
+            <p class="text-base font-bold text-base md:text-xl leading-none">
+              Ghostwind CSS
+            </p>
+            <p class="text-gray-600 text-xs md:text-base">
+              Tailwind CSS version of Ghost's Casper theme by
+              <a
+                class="text-gray-800 hover:text-teal-500 no-underline border-b-2 border-teal-500"
+                href="https://www.tailwindtoolbox.com"
+                >TailwindToolbox.com</a
+              >
+            </p>
+          </div>
+          <div class="justify-end">
+            <button
+              class="bg-transparent border border-gray-500 hover:border-teal-500 text-xs text-gray-500 hover:text-teal-500 font-bold py-2 px-4 rounded-full"
+            >
+              Read More
+            </button>
+          </div>
+        </div> -->
+        <!--/Author -->
+      </div>
+    </div>
+
+    <!-- <div class="bg-gray-200">
+      <div class="container w-full max-w-6xl mx-auto px-2 py-8">
+        <div class="flex flex-wrap -mx-2">
+          <div class="w-full md:w-1/3 px-2 pb-12">
+            <div
+              class="h-full bg-white rounded overflow-hidden shadow-md hover:shadow-lg relative smooth"
+            >
+              <a href="#" class="no-underline hover:no-underline">
+                <img
+                  src="https://source.unsplash.com/_AjqGGafofE/400x200"
+                  class="h-48 w-full rounded-t shadow-lg"
+                />
+                <div class="p-6 h-auto md:h-48">
+                  <p class="text-gray-600 text-xs md:text-sm">
+                    GETTING STARTED
+                  </p>
+                  <div class="font-bold text-xl text-gray-900">
+                    Lorem ipsum dolor sit amet.
+                  </div>
+                  <p class="text-gray-800 font-serif text-base mb-5">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
+                  </p>
+                </div>
+                <div
+                  class="flex items-center justify-between inset-x-0 bottom-0 p-6"
+                >
+                  <img
+                    class="w-8 h-8 rounded-full mr-4"
+                    src="http://i.pravatar.cc/300"
+                    alt="Avatar of Author"
+                  />
+                  <p class="text-gray-600 text-xs md:text-sm">2 MIN READ</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="w-full md:w-1/3 px-2 pb-12">
+            <div
+              class="h-full bg-white rounded overflow-hidden shadow-md hover:shadow-lg relative smooth"
+            >
+              <a href="#" class="no-underline hover:no-underline">
+                <img
+                  src="https://source.unsplash.com/_AjqGGafofE/400x200"
+                  class="h-48 w-full rounded-t shadow"
+                />
+                <div class="p-6 h-auto md:h-48">
+                  <p class="text-gray-600 text-xs md:text-sm">UNDERWATER</p>
+                  <div class="font-bold text-xl text-gray-900">
+                    Biolumini algae diatomeae ecology.
+                  </div>
+                  <p class="text-gray-800 font-serif text-base mb-5">
+                    Lorem ipsum dolor sit. Aliquam at ipsum eu nunc commodo
+                    posuere et sit amet ligula.
+                  </p>
+                </div>
+                <div
+                  class="flex items-center justify-between inset-x-0 bottom-0 p-6"
+                >
+                  <img
+                    class="w-8 h-8 rounded-full mr-4"
+                    src="http://i.pravatar.cc/300"
+                    alt="Avatar of Author"
+                  />
+                  <p class="text-gray-600 text-xs md:text-sm">4 MIN READ</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="w-full md:w-1/3 px-2 pb-12">
+            <div
+              class="h-full bg-white rounded overflow-hidden shadow-md hover:shadow-lg relative smooth"
+            >
+              <a href="#" class="no-underline hover:no-underline">
+                <img
+                  src="https://source.unsplash.com/DEa8_vxKlEo/400x200"
+                  class="h-48 w-full rounded-t shadow"
+                />
+                <div class="p-6 h-auto md:h-48">
+                  <p class="text-gray-600 text-xs md:text-sm">FOREST</p>
+                  <div class="font-bold text-xl text-gray-900">
+                    What is life but a teardrop in the eye of infinity?
+                  </div>
+                  <p class="text-gray-800 font-serif text-base mb-5">
+                    Mollis pretium integer eros et dui orci, lectus nec elit
+                    sagittis neque. Dignissim ac nullam semper aliquet volutpat,
+                    ut scelerisque.
+                  </p>
+                </div>
+                <div
+                  class="flex items-center justify-between inset-x-0 bottom-0 p-6"
+                >
+                  <img
+                    class="w-8 h-8 rounded-full mr-4"
+                    src="http://i.pravatar.cc/300"
+                    alt="Avatar of Author"
+                  />
+                  <p class="text-gray-600 text-xs md:text-sm">7 MIN READ</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <footer class="bg-gray-900">
+      <div class="container max-w-6xl mx-auto flex items-center px-2 py-8">
+        <div class="w-full mx-auto flex flex-wrap items-center">
+          <div
+            class="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold"
+          >
+            <a
+              class="text-gray-900 no-underline hover:text-gray-900 hover:no-underline"
+              href="#"
+            >
+            🇻🇳 <span class="text-base text-gray-200">Bep Ga</span>
+            </a>
+          </div>
+          <div
+            class="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end"
+          >
+            <ul
+              class="list-reset flex justify-center flex-1 md:flex-none items-center"
+            >
+              <li>
+                <a
+                  class="inline-block py-2 px-3 text-white no-underline"
+                  href="index.html"
+                  >HOME</a
+                >
+              </li>
+              <li>
+                <a
+                  class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-3"
+                  href="#"
+                  >link</a
+                >
+              </li>
+              <li>
+                <a
+                  class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-3"
+                  href="#"
+                  >link</a
+                >
+              </li>
+              <li>
+                <a
+                  class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-3"
+                  href="#"
+                  >link</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer> -->
+
+    <script>
+      /* Progress bar */
+      //Source: https://alligator.io/js/progress-bar-javascript-css-variables/
+      var h = document.documentElement,
+        b = document.body,
+        st = "scrollTop",
+        sh = "scrollHeight",
+        progress = document.querySelector("#progress"),
+        scroll;
+      var scrollpos = window.scrollY;
+      var header = document.getElementById("header");
+
+      document.addEventListener("scroll", function () {
+        /*Refresh scroll % width*/
+        scroll = ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100;
+        progress.style.setProperty("--scroll", scroll + "%");
+
+        /*Apply classes for slide in bar*/
+        scrollpos = window.scrollY;
+
+        if (scrollpos > 100) {
+          header.classList.remove("hidden");
+          header.classList.remove("fadeOutUp");
+          header.classList.add("slideInDown");
+        } else {
+          header.classList.remove("slideInDown");
+          header.classList.add("fadeOutUp");
+          header.classList.add("hidden");
+        }
+      });
+    </script>
+  </body>
 </html>
